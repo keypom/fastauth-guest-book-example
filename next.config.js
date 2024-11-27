@@ -13,7 +13,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: isProduction ? "/guest-book-examples" : "",
   output: "export", // Ensures static export
   distDir: "out", // Static files go here
   reactStrictMode: true,
