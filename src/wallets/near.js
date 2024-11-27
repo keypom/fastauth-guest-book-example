@@ -4,12 +4,12 @@ import { providers } from "near-api-js";
 // wallet selector
 import { distinctUntilChanged, map } from "rxjs";
 import "@near-wallet-selector/modal-ui/styles.css";
-import { setupModal } from "@near-wallet-selector/modal-ui";
-import { setupWalletSelector } from "@near-wallet-selector/core";
+import "@keypom/fastauth/lib/styles.css";
+import { setupModal, setupWalletSelector } from "@keypom/fastauth";
 import { setupHereWallet } from "@near-wallet-selector/here-wallet";
 import { setupMyNearWallet } from "@near-wallet-selector/my-near-wallet";
 import { setupMeteorWallet } from "@near-wallet-selector/meteor-wallet";
-import { setupMintbaseWallet } from "@near-wallet-selector/mintbase-wallet"; 
+import { setupMintbaseWallet } from "@near-wallet-selector/mintbase-wallet";
 import { setupBitteWallet } from "@near-wallet-selector/bitte-wallet";
 
 const THIRTY_TGAS = "30000000000000";
@@ -38,7 +38,13 @@ export class Wallet {
   startUp = async (accountChangeHook) => {
     this.selector = setupWalletSelector({
       network: this.networkId,
-      modules: [setupMyNearWallet(), setupHereWallet(), setupBitteWallet(), setupMeteorWallet(), setupMintbaseWallet()],
+      modules: [
+        setupMyNearWallet(),
+        setupHereWallet(),
+        setupBitteWallet(),
+        setupMeteorWallet(),
+        setupMintbaseWallet(),
+      ],
     });
 
     const walletSelector = await this.selector;
