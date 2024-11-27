@@ -5,7 +5,7 @@ const nextConfig = {
   webpack: (config) => {
     config.resolve.fallback = {
       fs: false,
-      path: false, // add other Node.js modules as needed
+      path: false,
       os: false,
     };
     return config;
@@ -14,10 +14,9 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: isProduction ? "/guest-book-examples" : "",
-  output: "export",
-  distDir: "build",
+  output: "export", // Ensures static export
+  distDir: "out", // Static files go here
   reactStrictMode: true,
 };
 
 module.exports = nextConfig;
-
