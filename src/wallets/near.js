@@ -14,6 +14,7 @@ import { setupBitteWallet } from "@near-wallet-selector/bitte-wallet";
 
 const THIRTY_TGAS = "30000000000000";
 const NO_DEPOSIT = "0";
+const IS_LOCAL_TESTING = false;
 
 export class Wallet {
   /**
@@ -38,6 +39,7 @@ export class Wallet {
   startUp = async (accountChangeHook) => {
     this.selector = setupWalletSelector({
       network: this.networkId,
+      localTesting: IS_LOCAL_TESTING,
       modules: [
         setupMyNearWallet(),
         setupHereWallet(),
@@ -74,6 +76,7 @@ export class Wallet {
   signIn = async () => {
     const modal = setupModal(await this.selector, {
       contractId: this.createAccessKeyFor,
+      localTesting: IS_LOCAL_TESTING,
     });
     modal.show();
   };

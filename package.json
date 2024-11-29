@@ -12,7 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@keypom/fastauth": "^0.0.14",
+    "@keypom/fastauth": "^0.1.5",
     "@near-wallet-selector/bitte-wallet": "^8.9.12",
     "@near-wallet-selector/core": "^8.9.11",
     "@near-wallet-selector/here-wallet": "^8.9.11",
